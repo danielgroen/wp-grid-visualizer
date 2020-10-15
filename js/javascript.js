@@ -1,12 +1,19 @@
-window.addEventListener('load', function() {
-  let columns = getComputedStyle(document.documentElement).getPropertyValue('--grid-count');
+buildGrid = function () {
+  let gridCount = getComputedStyle(document.documentElement).getPropertyValue('--grid-count');
   const container = document.getElementById("grid");
+  container.innerHTML = '';
 
-  
-  for (let i = 1; i <= columns; i++) {
-    console.log(i);
+  for (let i = 1; i <= gridCount; i++) {
     container.innerHTML += '<div>' + i + '</div>';
   }
+};
+
+window.addEventListener('resize', function() {  
+ buildGrid();
+});
+
+window.addEventListener('load', function() {
+  buildGrid();
   
   // grid toggler
   document.onkeydown = function(evt) {
