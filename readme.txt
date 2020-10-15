@@ -25,6 +25,7 @@ This is a lightweight plugin that allows you to use a css overlay grid for devel
 **Features**
 
 * Show a grid over your site
+* Enable the layover by clicking ctrl + ;
 * override variables to change the grid
 
 
@@ -50,6 +51,7 @@ __Services:__ This plugin does not connect to any third-party locations or servi
   --grid-left: 'somevalue';
   --grid-opacity: 'somevalue';
   --grid-zindex: 'somevalue';
+  --grid-padding: 'somevalue';
 
   @media screen and (min-width: 1400px) {
     --grid-count: 'someOtherValue';

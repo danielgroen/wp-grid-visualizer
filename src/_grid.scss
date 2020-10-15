@@ -1,0 +1,22 @@
+/* 
+ * @params
+ * $columns: how much columns in the grid will it use
+ * $offset: How the number of columns offset
+ * $extra: if the column is not the first in the grid, gif it an extra gutter offset from left
+ */
+ @mixin grid($columns:null, $offset:0, $extra-gutter:0px) {
+  @if ($columns == null) { @error "You must at least set one param to the grid mixin"; }
+  $guttercalculator: calc(1 - #{$columns} / var(--grid-count));
+  $offsetcalculator: calc(1 - #{$offset} / var(--grid-count));
+  
+  @if ($extra-gutter != 0px) { 
+    $extra-gutter: var(--grid-gap);
+  }
+  
+  // margin-left
+  margin-left: calc((var(--grid-max-width) / var(--grid-count)  * #{$offset} - (var(--grid-gap) * #{$offsetcalculator} )) + var(--grid-gap) + #{$extra-gutter});
+
+  // width
+  flex-basis:  calc(var(--grid-max-width) / var(--grid-count)  * #{$columns} - (var(--grid-gap) * #{$guttercalculator} ) );
+  width:  calc(var(--grid-max-width) / var(--grid-count)  * #{$columns} - (var(--grid-gap) * #{$guttercalculator} ) );
+}

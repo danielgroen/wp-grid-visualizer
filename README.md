@@ -14,6 +14,7 @@ To use this plugin you only have to:
   --grid-left: 'somevalue';
   --grid-opacity: 'somevalue';
   --grid-zindex: 'somevalue';
+  --grid-padding: 'somevalue';
 
   @media screen and (min-width: 1400px) {
     --grid-count: 'someOtherValue';

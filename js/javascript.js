@@ -1,6 +1,7 @@
 buildGrid = function () {
-  let gridCount = getComputedStyle(document.documentElement).getPropertyValue('--grid-count');
+  const gridCount = getComputedStyle(document.documentElement).getPropertyValue('--grid-count');
   const container = document.getElementById("grid");
+
   container.innerHTML = '';
 
   for (let i = 1; i <= gridCount; i++) {
