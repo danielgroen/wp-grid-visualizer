@@ -1,6 +1,6 @@
 {
   "name": "grid-visualizer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Visualize your grid for development purposes",
   "main": "schema-extender.php",
   "scripts": {

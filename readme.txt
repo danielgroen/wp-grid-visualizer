@@ -6,28 +6,27 @@ Description: This is a lightweight plugin that allows you to use a css overlay g
 Tags: css, grid, visualizer, visualized, visual, development, dev
 Author: Daniel Groen
 Author URI: https://danielgroen.nl/
-Contributors: specialk
+Contributors: Daniel Groen
 Requires at least: 4.1
 Tested up to: 5.5
 Stable tag: 20201015
 Version: 20201015
 Text Domain: grid-visualizer
-Domain Path: /languages
 License: GPL v2 or later
 
 
 == Description ==
 
-> Shows a grid over your site which you can customize
+> Shows a grid over your site which you can customize by clicking `ctrl` + `;`
 
 This is a lightweight plugin that allows you to use a css overlay grid for development purposes
 
 **Features**
 
-* Show a grid over your site
-* Enable the layover by clicking ctrl + ;
-* override variables to change the grid
-
+* Visualize a grid over your site
+* Enable the grid-layover by clicking: ctrl + ;
+* Override css-variables to change the grid
+* A ready to use css mixin called grid()
 
 **Privacy**
 
@@ -58,11 +57,14 @@ __Services:__ This plugin does not connect to any third-party locations or servi
   }
 }
 ```
+3. optional if you are using scss. link in your stylesheet to the _grid.scss in this plugin. now you can use the mixin.
+
 **Usage**
 
 1. Enable the plugin
-2. override css vars if you want to
-3. Happy styling with your grid
+2. Override the available css-vars in your own stylesheet
+3. Optional: link the _grid.scss in your stylesheet to use the scss mixin @grid()
+4. Happy styling with your grid
 
 == Changelog ==
 

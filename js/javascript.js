@@ -14,14 +14,23 @@ window.addEventListener('resize', function() {
 });
 
 window.addEventListener('load', function() {
+  const gridDebugValue = getComputedStyle(document.documentElement).getPropertyValue('--grid-debug');
+
   buildGrid();
   
   // grid toggler
   document.onkeydown = function(evt) {
-  if (evt.ctrlKey && (evt.key === ';')) {
+    if (evt.ctrlKey && (evt.key === ';')) {
       var newValue = document.body.getAttribute('grid') === 'visible' ? 'invisible' : 'visible';
       document.body.setAttribute('grid', newValue);
       localStorage.setItem('grid', newValue);
+
+      if (newValue === 'invisible') {
+        document.documentElement.style.setProperty('--grid-debug', false);
+      }
+      else {
+        document.documentElement.style.setProperty('--grid-debug', gridDebugValue);
+      }
     }
   };
 
