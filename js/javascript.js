@@ -1,6 +1,6 @@
 buildGrid = function () {
   const gridCount = getComputedStyle(document.documentElement).getPropertyValue('--grid-count');
-  const container = document.getElementById("grid");
+  const container = document.getElementById("grid-visualizer");
 
   container.innerHTML = '';
 
@@ -16,17 +16,24 @@ window.addEventListener('resize', function() {
 window.addEventListener('load', function() {
   const gridDebugValue = getComputedStyle(document.documentElement).getPropertyValue('--grid-debug');
 
+  if (localStorage.getItem('grid-onboarding') !== 'false') {
+    document.body.setAttribute('grid-onboarding', 'true');
+  }
+  localStorage.setItem('grid-onboarding', false);
+
+
   buildGrid();
-  
-  
+   
   // grid toggler
   document.onkeydown = function(evt) {
     
     document.onclick = () => { 
-      if (evt.altKey === true) {
+      console.log(evt.key);
+      if (evt.key === 'Alt') {
         var newValue = document.body.getAttribute('grid') === 'visible' ? 'invisible' : 'visible';
         document.body.setAttribute('grid', newValue);
         localStorage.setItem('grid', newValue);
+        document.body.setAttribute('grid-onboarding', false);
 
         if (newValue === 'invisible') {
           document.documentElement.style.setProperty('--grid-debug', false);

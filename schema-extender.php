@@ -8,7 +8,10 @@
 **/
 
 // Create the container
-add_action( 'wp_footer', function() { echo '<div id="grid"></div>'; });
+add_action( 'wp_footer', function() { 
+  echo '<div id="grid-visualizer"></div>'; 
+  echo '<div id="grid-visualizer-onboarding"><div class="grid-onboarding-inner">To show the grid-layover, press <span class="primary grid-icon"></span> and <span class="secondary grid-icon"></span> simultaneously.</div></div>';
+});
 
 // Load the Assets
 add_action('wp_enqueue_scripts', function() {

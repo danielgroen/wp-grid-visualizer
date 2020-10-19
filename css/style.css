@@ -1,8 +1,8 @@
-#grid {
+#grid-visualizer {
   display: none;
 }
 
-body[grid="visible"] #grid {
+body[grid="visible"] #grid-visualizer {
   display: grid;
   max-width: calc(var(--grid-max-width, 1024px));
   grid-template-columns: repeat(var(--grid-count, 12), 1fr);
@@ -20,13 +20,59 @@ body[grid="visible"] #grid {
   z-index: var(--grid-zindex, 999999);
 }
 
-body[grid="visible"] #grid > div {
+body[grid="visible"] #grid-visualizer > div {
   background: var(--grid-color, red);
   opacity: var(--grid-opacity, .45);
   padding-top: calc(100vh - 40px);
   text-align: center;
   color: white;
 }
-body[grid="visible"] #grid > div:nth-child(odd) {
+body[grid="visible"] #grid-visualizer > div:nth-child(odd) {
   opacity: .25;
+}
+
+/* Onboarding */
+#grid-visualizer-onboarding {
+  display: none;
+}
+
+body[grid-onboarding=true] #grid-visualizer-onboarding .primary {
+  background-image: url('../assets/alt.png');
+}
+
+body[grid-onboarding=true] #grid-visualizer-onboarding .secondary {
+  background-image: url('../assets/mouse-left-click.png');
+}
+
+body[grid-onboarding=true] #grid-visualizer-onboarding .grid-icon {
+  display: inline-block;
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+  vertical-align: middle;
+  margin: 0 7px;
+}
+
+body[grid-onboarding=true] #grid-visualizer-onboarding {
+    font-family: arial, inherit;
+    display: block;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    bottom: 50%;
+    height: 50vh;
+    max-height: 250px;
+    width: 50vw;
+    max-width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+    background-color: rgba(242, 249, 255, 0.95);
+    border-bottom: 4px solid rgb(223, 240, 254);
+    border-radius: 10px;
+    z-index: 999999;
 }

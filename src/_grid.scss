@@ -1,3 +1,11 @@
+/* 
+    TODO:: 
+  - van mixin grid() een functie maken zodat je kan doen: width: grid().
+  - outline alleen inladen als je in debug mode zit
+  - popup met uitleg bij oninit. dit uitschakelen adhv local storage
+  - Icoon voor wordpress maken en uitleg aanpassen
+*/
+
 @mixin grid-debug($setting: false) {
   @if ($setting != false) {
     :root {
