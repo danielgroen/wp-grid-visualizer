@@ -71,8 +71,19 @@ body[grid-onboarding=true] #grid-visualizer-onboarding {
     align-items: center;
     flex-wrap: wrap;
     text-align: center;
-    background-color: rgba(242, 249, 255, 0.95);
+    background-color: rgba(242, 249, 255, 1);
     border-bottom: 4px solid rgb(223, 240, 254);
     border-radius: 10px;
     z-index: 999999;
+}
+
+body[grid-onboarding=true]:before {
+  content: '';
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99999;
+  background-color: rgba(210, 210, 210, 0.8);
 }

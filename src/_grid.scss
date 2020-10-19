@@ -1,6 +1,13 @@
 /* 
     TODO:: 
-  - Icoon voor wordpress maken en uitleg aanpassen
+  - Icoon voor wordpress maken 
+  - Uitleg aanpassen:
+    - @include max-width
+    - $max-width
+    - uitleg @include grid-container()
+    - uitleg @include grid();
+    - uitleg dat sass mag niet hoeft
+    - geen position fixed ondersteuning
 
     NOTE:
     Position fixed does not work
@@ -31,7 +38,9 @@
   $gapFactorCalculator: calc(1 - #{$width} / var(--grid-count) );
 
   display: $display;
-  outline: var(--grid-debug, none); 
+  body[grid=visible] & {
+    outline: var(--grid-debug, none); 
+  }
   width: calc( (var(--grid-max-width) - (var(--grid-padding) * 2) - ( var(--grid-gap) * #{$gapFactorCalculator}) ) / var(--grid-count)  * #{$width} );
 }
 
@@ -57,7 +66,9 @@
   @else {
     $extra-gutter: 0px;
   }
-  outline: var(--grid-debug, none); 
+  body[grid=visible] & {
+    outline: var(--grid-debug, none); 
+  }
   margin-left: calc( ( var(--grid-max-width) / #{$in-custom-grid}  * #{$offset} - (var(--grid-gap) * #{$offsetcalculator} )) + var(--grid-gap) + #{$extra-gutter});
   #{$operand}: calc( var(--grid-max-width) / #{$in-custom-grid}  * #{$columns} - (var(--grid-gap) * #{$guttercalculator} ) );
 }

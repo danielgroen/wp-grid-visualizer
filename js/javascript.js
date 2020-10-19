@@ -19,13 +19,21 @@ window.addEventListener('load', function() {
   if (localStorage.getItem('grid-onboarding') !== 'false') {
     document.body.setAttribute('grid-onboarding', 'true');
   }
-  localStorage.setItem('grid-onboarding', false);
-
 
   buildGrid();
+
+  document.onclick = () => { 
+    document.body.setAttribute('grid-onboarding', false);
+    localStorage.setItem('grid-onboarding', false);
+    document.onclick = null;
+  }
    
   // grid toggler
   document.onkeydown = function(evt) {
+    if (evt.key === 'Escape') {
+      document.body.setAttribute('grid-onboarding', false);
+      localStorage.setItem('grid-onboarding', false);
+    }
     
     document.onclick = () => { 
       if (evt.key === 'Alt') {

@@ -2,7 +2,7 @@
 
 Plugin Name: Grid visualizer
 Plugin URI: https://github.com/danielgroen/wp-grid-visualizer
-Description: This is a lightweight plugin that allows you to use a css overlay grid for development purposes
+Description: This is a lightweight plugin that allows you to use a css overlay grid for development purpouses
 Tags: css, grid, visualizer, visualized, visual, development, dev
 Author: Daniel Groen
 Author URI: https://danielgroen.nl/
@@ -19,7 +19,7 @@ License: GPL v2 or later
 
 > Shows a grid over your site which you can customize by clicking `ctrl` + `;`
 
-This is a lightweight plugin that allows you to use a css overlay grid for development purposes
+This is a lightweight plugin that allows you to use a css overlay grid for development purpouses
 
 **Features**
 
