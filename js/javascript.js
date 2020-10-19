@@ -28,8 +28,8 @@ window.addEventListener('load', function() {
   document.onkeydown = function(evt) {
     
     document.onclick = () => { 
-      console.log(evt.key);
       if (evt.key === 'Alt') {
+        
         var newValue = document.body.getAttribute('grid') === 'visible' ? 'invisible' : 'visible';
         document.body.setAttribute('grid', newValue);
         localStorage.setItem('grid', newValue);

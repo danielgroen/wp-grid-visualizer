@@ -1,9 +1,9 @@
 /* 
     TODO:: 
-  - van mixin grid() een functie maken zodat je kan doen: width: grid().
-  - outline alleen inladen als je in debug mode zit
-  - popup met uitleg bij oninit. dit uitschakelen adhv local storage
   - Icoon voor wordpress maken en uitleg aanpassen
+
+    NOTE:
+    Position fixed does not work
 */
 
 @mixin grid-debug($setting: false) {
@@ -16,17 +16,23 @@
 
 @mixin grid-max-width($value) {
   :root {
-    --grid-extra-padding: 0px;
     --grid-max-width: 100%;
     --grid-gap-correction: 1;
   } 
   @media (min-width: #{$value}) {
     :root {
       --grid-max-width: #{$value};
-      --grid-extra-padding: calc( var(--grid-padding) * 2); 
       --grid-gap-correction: .5;
     }
   }
+}
+
+@mixin grid-container($width: var(--grid-count), $display: 'flex') {
+  $gapFactorCalculator: calc(1 - #{$width} / var(--grid-count) );
+
+  display: $display;
+  outline: var(--grid-debug, none); 
+  width: calc( (var(--grid-max-width) - (var(--grid-padding) * 2) - ( var(--grid-gap) * #{$gapFactorCalculator}) ) / var(--grid-count)  * #{$width} );
 }
 
 /* 
@@ -35,7 +41,12 @@
 * $offset: How the number of columns offset
 * $extra: if the column is not the first in the grid, gif it an extra gutter offset from left
 */
-@mixin grid($columns:null, $offset:0, $extra-gutter:false, $in-custom-grid: var(--grid-count)) {
+@mixin grid($columns:null, 
+            $offset:0,
+            $extra-gutter:false,
+            $in-custom-grid: var(--grid-count),
+            $operand: 'flex-basis') {
+
   @if ($columns == null) { @error "You must at least set one param to the grid mixin"; }
   $guttercalculator: calc(1 - #{$columns} / #{$in-custom-grid});
   $offsetcalculator: calc(1 - #{$offset} / #{$in-custom-grid});
@@ -48,6 +59,5 @@
   }
   outline: var(--grid-debug, none); 
   margin-left: calc( ( var(--grid-max-width) / #{$in-custom-grid}  * #{$offset} - (var(--grid-gap) * #{$offsetcalculator} )) + var(--grid-gap) + #{$extra-gutter});
-  flex-basis:  calc( ( var(--grid-max-width) - var(--grid-extra-padding) ) / #{$in-custom-grid}  * #{$columns} - (var(--grid-gap) * #{$guttercalculator} ) );
-  width:       calc( ( var(--grid-max-width) - var(--grid-extra-padding) ) / #{$in-custom-grid}  * #{$columns} - (var(--grid-gap) * #{$guttercalculator} ) );
+  #{$operand}: calc( var(--grid-max-width) / #{$in-custom-grid}  * #{$columns} - (var(--grid-gap) * #{$guttercalculator} ) );
 }
