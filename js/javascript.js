@@ -15,9 +15,14 @@ window.addEventListener('resize', function() {
 
 window.addEventListener('load', function() {
   const gridDebugValue = getComputedStyle(document.documentElement).getPropertyValue('--grid-debug');
+  const gridToggle = document.getElementById("grid-switch");
 
   if (localStorage.getItem('grid-onboarding') !== 'false') {
     document.body.setAttribute('grid-onboarding', 'true');
+    document.body.setAttribute('grid', 'invisible');
+    localStorage.setItem('grid', 'invisible');
+  }
+  else {
   }
 
   buildGrid();
@@ -26,6 +31,13 @@ window.addEventListener('load', function() {
     document.body.setAttribute('grid-onboarding', false);
     localStorage.setItem('grid-onboarding', false);
     document.onclick = null;
+  }
+
+  gridToggle.onclick = () => { 
+    var newValue = document.body.getAttribute('grid') === 'visible' ? 'invisible' : 'visible';
+    document.body.setAttribute('grid', newValue);
+    localStorage.setItem('grid', newValue);
+    document.body.setAttribute('grid-onboarding', false);
   }
    
   // grid toggler

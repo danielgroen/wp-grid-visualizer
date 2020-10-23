@@ -10,7 +10,8 @@
 // Create the container
 add_action( 'wp_footer', function() { 
   echo '<div id="grid-visualizer"></div>'; 
-  echo '<div id="grid-visualizer-onboarding"><div class="grid-onboarding-inner">To show the grid-layover, press <span class="primary grid-icon"></span> and <span class="secondary grid-icon"></span> simultaneously.</div></div>';
+  echo '<input type="checkbox" id="grid-switch">'; 
+  echo '<div id="grid-visualizer-onboarding"><div class="grid-onboarding-inner">To show the grid-layover, press <span class="primary grid-icon"></span> and <span class="secondary grid-icon"></span> simultaneously or by clicking on this toggle.</div></div>';
 });
 
 // Load the Assets
